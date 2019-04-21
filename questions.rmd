@@ -1,0 +1,34 @@
+---
+title: "gapminder"
+author: "Dr K"
+date: "April 21, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require(tidyverse)
+require(gapminder)
+mydata <- gapminder
+```
+
+## Question 1 (worked)
+
+Which African country and in which year was life expectancy the greatest ?
+
+
+```{r }
+afrikaLE <- filter(mydata,continent=="Africa") %>%
+  group_by(country,year) %>% 
+  arrange(desc(lifeExp))
+afrikaLE
+```
+### The results show that the Island Country of Reunion off the east coast of Africa  in the Indian Ocean had the greatest life Expectancy year 2007. The life expectancy was 76.4 years. 
+
+##Question 2
+
+What country in Europe and in what year did it have the greatest gdpPercap?
+
+##Question 3
+
+Which two countries in Africa or the Americas (excluding the United States) and in which years did they have the largest population.
